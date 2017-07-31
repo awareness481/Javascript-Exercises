@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Using the ... Spread Operator with strings</title>
+    <style>
+      .bigger span {
+        display: inline-block;
+        transition: transform 0.2s;
+        font-size: 40px;
+      }
+
+      .bigger span:hover {
+        transform: scale(2);
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="bigger">Spread</h2>
+
+    <script>
+      const spr = document.querySelector('.bigger');
+
+      let spread = [...spr.textContent]
+      console.log(spread);
+      //(6) ["S", "p", "r", "e", "a", "d"]
+
+      spread = spread.map(letter => {
+        return `<span>${letter}</span>`;
+      });
+
+      //.join('') to avoid commas
+      spr.innerHTML = spread.join('');
+    </script>
+  </body>
+</html>
